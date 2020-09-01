@@ -1,0 +1,123 @@
+.toolbar > ion-icon:nth-of-type(1) {
+    font-size: 30px;
+    padding-left: 10px;
+    color: #848282;
+}
+
+.toolbar > ion-icon:nth-of-type(2) {
+    padding-right: 10px;
+    font-size: 25px;
+    color: #848282;
+}
+
+.toolbar > ion-title {
+    font-size: 20px;
+    width: 120%;
+}
+.profileImg{
+    border-radius: 100%;
+    margin: 10px 10px 10px 30px;
+    height: 50px;
+    width: 50px;
+}
+h3{
+    font-size: 18px;
+}
+
+ion-item{
+    --background:none;
+}
+
+.container{
+    width: 100%;
+}
+
+.out-wrap{
+    width: 100%;
+    height: fit-content;
+}
+
+.in-wrap{
+//    width: 70%;
+//     height: fit-content;
+//     background-color: var(--ion-color-primary);
+//     border-radius: 10px 0;
+//     margin-bottom: 10px;
+
+  
+//     &> ion-label > .msg{
+//         color: #fff;
+//     }
+//     &> ion-label >.time{
+//         color: #c0c0c0;
+//     }
+}
+
+.messageLeft{
+    float: left;
+    width: 70%;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    color: #000000;
+    background-color: #57469c;
+    padding: 5px;
+    
+
+    & .msg{
+        color: #fff;
+        font-family: serif;
+        letter-spacing: 1px;
+        padding-left: 5px;
+    }
+
+
+
+    &> ion-label > .time{
+        color: #e0dddd;
+    }
+
+    & > ion-label >.icon{
+        font-size: 20px;
+       opacity: 0;
+       display: none;
+    }
+
+}
+
+.itime{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.messageRight{
+    float: right;
+    margin-bottom: 10px;
+    background-color:var(--ion-color-primary);;
+    width: 70%;
+    border-radius: 15px;
+    color: #ffffff;
+    padding: 5px;
+  
+
+    &>  .msg{
+        color: #fff;
+        font-family: serif;
+        letter-spacing: 1px;
+        padding-left: 5px;
+    }
+
+
+
+    &> ion-label > .time{
+        color: #c0c0c0;
+    }
+
+    & >.icon{
+        font-size: 20px;
+       color: #fff;
+    }
+  
+}
+
+
+

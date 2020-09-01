@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon class="postback" name="arrow-back" alt="" (click)="postback()" slot="start"></ion-icon>
+    <ion-title>
+      Post
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <div class="postview">
+    <ion-item  lines="none">
+      <ion-avatar><img src="{{view.posterImg}}" alt="" ></ion-avatar>
+      <ion-label>{{view.name}}</ion-label>
+      <p slot="end"> 10min</p>
+    </ion-item>
+    <p>{{view.post}}</p>
+   <img src="{{view.postImg}}" alt="">
+    <div><p>1:21PM - 14 Aug 20</p>  <p> from Android</p></div>
+    <div><p>102 Likes</p>  <p>20 Comments </p></div>
+
+    <div>
+      <ion-item lines="none">
+        <ion-icon name="heart-outline"></ion-icon>
+        <ion-label>100</ion-label>
+      </ion-item>
+     <ion-item lines="none">
+        <ion-icon name="chatbubble-outline"></ion-icon>
+        <ion-label>10</ion-label>
+     </ion-item>
+    
+      <ion-item lines="none">
+        <ion-icon name="share-social-outline"></ion-icon>
+        <ion-label>2</ion-label>
+      </ion-item>
+    </div>
+  </div>
+
+
+
+
+<div class="comments" >
+  <div class="commentsview" *ngFor="let comment of comments" (click)="postdetail(comment.posterImg, comment.name, view.post, comment.postImg)">
+    <ion-avatar><img  class="posterImg" src="{{comment.posterImg}}" alt=""></ion-avatar>
+      <div>
+          <h2>{{comment.name}}</h2>
+          <p> {{comment.post}}</p>
+            <img  class="postImg" src="{{comment.postImg}}" alt="">
+            <div>
+              <ion-item lines="none">
+                <ion-icon name="heart-outline"></ion-icon>
+                <ion-label>100</ion-label>
+              </ion-item>
+    
+             <ion-item lines="none">
+                <ion-icon name="chatbubble-outline"></ion-icon>
+                <ion-label>10</ion-label>
+             </ion-item>
+    
+              <ion-item lines="none">
+                <ion-icon name="share-social-outline"></ion-icon>
+                <ion-label>2</ion-label>
+              </ion-item>
+            </div>
+      </div>
+  </div>
+
+  
+</div>
+</ion-content>
+
+<ion-footer class="ion-footer" [fullscreen]="true" >
+  <ion-toolbar class="ion-padding">
+    <div >
+      <ion-textarea placeholder="Reply this post" rows="{{no}}"></ion-textarea>
+      <ion-icon slot="end" name="camera" ></ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-footer>

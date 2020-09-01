@@ -1,0 +1,136 @@
+<ion-content >
+  <div class="searchwrap"> 
+    <ion-item lines="none">
+      <ion-label slot="start">My Profile</ion-label>
+    </ion-item>
+  </div>
+  <div class="searchwrap2"> 
+    <ion-avatar slot="start" (click)="selectImageSource()">
+      <img src="{{user_img}}" />
+    </ion-avatar>
+  </div>
+ 
+   <div class="listwrap"> 
+
+    <ion-list class="info">
+      <ion-item-divider>
+        <ion-label>
+          Basic Info
+        </ion-label>
+  <ion-icon slot="end" name="{{basic}}" (click)="edit('basic')"></ion-icon> 
+      </ion-item-divider>
+            
+      <ion-item lines="none">
+        <ion-icon slot="start" name="person"></ion-icon>
+        <ion-input readonly="{{basic_input}}" class="{{basic_class}}" [(ngModel)]="username" value="{{user.username}}" ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="person-add"></ion-icon>
+        <ion-input readonly="{{basic_input}}" class="{{basic_class}}" [(ngModel)]="nickname" value="{{user.nickname}}" ></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="calendar"></ion-icon>
+        <ion-input readonly="{{basic_input}}" class="{{basic_class}}" [(ngModel)]="birthday"  value="{{user.birthday}}"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="document-attach"></ion-icon>
+        <ion-input readonly="{{basic_input}}" class="{{basic_class}}" [(ngModel)]="phone"  value="{{user.phone}}"></ion-input>
+      </ion-item>
+
+    
+            
+      <ion-item-divider>
+        <ion-label>
+          Contact Info
+        </ion-label>
+        <ion-icon slot="end" name="{{contact}}" (click)="edit('contact')"></ion-icon> 
+      </ion-item-divider>
+            
+      <ion-item lines="none">
+        <ion-icon slot="start" name="call"></ion-icon>
+        <ion-input readonly="{{contact_input}}" class="{{contact_class}}" value="{{user.phone}}"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="mail"></ion-icon>
+        <ion-input readonly="{{contact_input}}" class="{{contact_class}}" value="{{user.email}}"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="location"></ion-icon>
+        <ion-input readonly="{{contact_input}}" class="{{contact_class}}" value="{{user.address}}"></ion-input>
+      </ion-item>
+
+
+
+      <ion-item-divider>
+        <ion-label>
+          Social Accounts
+        </ion-label>
+        <ion-icon slot="end" name="{{social}}" (click)="edit('social')"></ion-icon> 
+      </ion-item-divider>
+            
+      <ion-item lines="none">
+        <ion-icon slot="start" name="logo-twitter"></ion-icon>
+        <ion-input readonly="{{social_input}}" class="{{social_class}}" value="{{user.twitter}}"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="logo-linkedin"></ion-icon>
+        <ion-input readonly="{{social_input}}" class="{{social_class}}" value="{{user.linkedin}}"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="logo-facebook"></ion-icon>
+        <ion-input readonly="{{social_input}}" class="{{social_class}}" value="{{user.facebook}}"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-icon slot="start" name="logo-instagram"></ion-icon>
+        <ion-input readonly="{{social_input}}" class="{{social_class}}" value="{{user.instagram}}"></ion-input>
+      </ion-item>
+
+      <ion-item-divider>
+        <ion-label>
+          Hobbies
+        </ion-label>
+        <ion-icon slot="end" name="add" (click)="addHobby()"></ion-icon> 
+      </ion-item-divider>
+
+      <div class="hobby">
+        <ion-item lines="none">
+          <ion-label>MUSIC</ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>SOCCER</ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>READING</ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>TRAVELLING</ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-label>DRIVING</ion-label>
+        </ion-item>
+      </div>
+
+
+
+
+    </ion-list>
+         
+
+
+  </div> 
+ 
+ 
+ </ion-content>
+ 

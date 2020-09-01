@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar style="padding: 20px;">
+    <ion-icon slot="start" name="close" class="close" (click)="close()"></ion-icon>
+    <div slot="end">
+      <ion-label>Drafts</ion-label>
+      <ion-item lines="none" class="post"  (click)="post()">
+        <ion-label>post</ion-label>
+      </ion-item>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-item lines="none" class="ion-padding">
+  <ion-avatar><img class="face" src="assets/img/face.jpg" alt=""></ion-avatar>
+  <ion-textarea placeholder="What's Happening ?" rows="10" [(ngModel)]="mypost"></ion-textarea>
+</ion-item>
+<div class="postOption">
+  <ion-icon name="image" (click)="selectImageSource()"></ion-icon>
+  <ion-icon name="bar-chart"></ion-icon>
+  <ion-icon name="location"></ion-icon>
+  <ion-icon name="home"></ion-icon>
+
+</div>
+</ion-content>

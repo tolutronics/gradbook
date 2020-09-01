@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-icon slot="start" name="arrow-back" (click)="back()"></ion-icon>
+    <img class="profileImg" src="{{mate.posterImg}}" alt="" slot="start" >
+    <ion-title>
+      <ion-label>
+        <h3>{{mate.name}}</h3>
+         <p>online</p>
+      </ion-label>
+    </ion-title>
+    <ion-icon slot="end" name="ellipsis-vertical" (click)="back()"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="container" *ngFor="let msg of msgs">
+    <div class="out-wrap"  >
+     <div class="in-wrap" lines="none" [class]="msg.name == 'Tolu' ? 'inner messageRight':'inner messageLeft'">
+        
+          <ion-label class="msg">{{msg.text}}</ion-label>
+          <ion-label class="itime">
+          <p class="time" slot="end">{{msg.time}}</p>
+          <ion-icon slot="end" class="icon" name="checkmark"></ion-icon>
+        </ion-label>
+        
+      </div>
+
+    </div>
+  </div>
+</ion-content>

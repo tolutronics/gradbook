@@ -1,0 +1,288 @@
+ion-item {
+    --background: none;
+    opacity:1;
+    color:#fff;
+  }
+
+.content{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.design{
+    width: 200px;
+    height: 150px;
+    transform: rotateY(45deg);
+    background-color: var(--ion-color-primary);
+    border-radius: 100%;
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+}
+
+.title{
+    right: 20px;
+    position: absolute;
+    top: 10px;
+    color: #ffffff;
+    z-index: 2;
+}
+
+.container{
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    bottom: 0px;
+}
+
+.h2{
+    font-weight: 800;
+    color:#ffffff;
+    font-size: 30px;
+    margin-left: 10px;
+    letter-spacing: 2px;
+    margin-top: calc(100vh/4);
+}
+
+.intro{
+    letter-spacing: 1px;
+    font-size: 18px;
+    margin-top: 0px;
+    margin-left: 10px;
+    color: #f4f1f18c;
+    font-family: auto;
+}
+.p{
+    letter-spacing: 1px;
+    font-size: 13px;
+    font-family: auto;
+}
+.pp{
+    font-size: 10px;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 10px;
+    color: var(--ion-color-primary);
+    z-index: 2;
+}
+
+// .input{
+//     font-size: 13px;
+// }
+
+ion-item:nth-of-type(1){
+    margin-top: 25px;
+    width: 100%;
+    --highlight-background: none;
+    margin-left: -10px;
+    --border-color: #fff;
+}
+ion-item:nth-of-type(2){
+    --highlight-background: none;
+    margin-top: 25px;
+    width: 100%;
+    margin-left: -10px;
+    --border-color: #fff;
+}
+
+ion-item:nth-of-type(1) > ion-label{
+  color:#f4f1f18c;
+  letter-spacing: 2px;
+}
+ion-item:nth-of-type(2) > ion-label{
+  color:#f4f1f18c;
+  letter-spacing: 2px;
+}
+
+// .input-icon{
+//     display: flex;
+//     align-items: flex-start;
+//     margin-right: 10px;
+//     bottom: 0;
+//     font-size: 18px;
+//     min-width: 0 !important;
+//     text-align: left !important;
+// }
+
+.btn{
+    border-radius: 50px;
+    margin-top: 50px;
+    --ripple-color:var(--ion-color-primary);
+    background-color: #ffffff;
+    color: var(--ion-color-primary);
+    border: none;
+    font-weight: 800;
+    padding: 6px;
+    font-size: 20px;
+    
+  
+}
+
+.btn >ion-label{
+    text-align: center;
+}
+.btn-icon{
+    margin-left: 10px;
+    color: #fff;
+    --background: none;
+    opacity:1;
+}
+
+
+    .reset{
+        
+     -webkit-animation: rotation 2s infinite linear;
+    animation: rotation 2s infinite linear;
+    position: absolute;
+    font-size: 40px;
+    right: 15px;
+    bottom: -2px;
+    }
+
+    .signin-ani{
+        margin-left: 10px;
+        color: #fff;
+        --background: none;
+        opacity:1;
+       // transition: width 1s;
+        //width: 300px;
+        animation: rotation 2s infinite linear;
+      //  animation-delay: 0s;
+    //   position: absolute;
+  //  transform: rotate(360deg);
+      // font-size: 40px;
+     //  margin-top: 0px;
+    //    right: 15px;
+    //    bottom: -2px;
+       }
+
+.success{
+
+    transition: width 1s;
+    width: 30px;
+    //animation: rotation 2s infinite linear;
+    animation-delay: 0s;
+//   position: absolute;
+transform: rotate(360deg);
+   font-size: 40px;
+   margin-top: 0px;
+//    right: 15px;
+//    bottom: -2px;
+
+}
+
+// .btn:hover{
+//     cursor: pointer;
+//     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+// }
+
+.signin{
+    bottom: 5px;
+    width: 100%;
+    color: #f4f1f18c;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+ //..................forget dialog start...................................
+
+ .forgetDialog{
+    width:90%;
+    height: 300px;
+    display: flex;
+    z-index: 100;
+    position:absolute;
+    background-color: #ffffff;
+    align-items: center;
+    flex-direction: column;  }
+  
+    .forgetDialog-out{
+        animation: down 1s;
+    }
+
+  .forgetDialog>span{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 110;
+    color: #c0c0c0;
+    font-family: 'custom', sans-serif;
+    font-size: 15px;
+  
+  
+  }
+  
+  .forgetDialog>span:hover{
+    cursor:pointer;
+    font-size: 20px;
+  }
+  .forgetDialog>p{
+    width: 90%;
+    margin-top: 50px;
+    text-align: center;
+    font-family: serif;
+  } 
+  .forgetDialog>ion-item{
+    width: 80%;
+  }
+
+  .forgetDialog>ion-item:nth-of-type(1){
+      margin-top: 20px;
+    width: 80%;
+  }
+ 
+.backdrop{
+  width:100%;
+  height: 100%;
+  display: flex;
+  position:absolute;
+   z-index: 5;
+  background-color: #4d4b4b8f;
+  //border-radius: 24px;
+  justify-content: center;
+  align-items: center;
+  //box-shadow: inset 0 4px 7px 1px #fff, inset 0 -5px 20px rgba(173, 186, 204, 0.25), 0 2px 6px rgba(0, 21, 64, 0.14), 0 100px 200px rgba(0, 21, 64, 0.05);
+}
+
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+  @keyframes down {
+    100% {
+        transform: translateY(1000px) rotate(0deg);
+        opacity: 1;
+    }
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 1;
+    }
+
+    
+}
+
+//   @keyframes fadeout {
+//     100% {
+//         opacity: 1;
+//     }
+
+//     0% {
+//         opacity: 0;
+//     }
+// }

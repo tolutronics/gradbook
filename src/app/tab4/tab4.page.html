@@ -1,0 +1,31 @@
+
+
+
+<ion-content class="">
+  <div class="searchwrap"> 
+    <div class="h2">My Chats</div>
+   </div>
+    <div class="searchwrap2">
+      <ion-searchbar class="searchbar" showCancelButton="focus" [(ngModel)]="queryText" (ionInput)="update($event)"  ></ion-searchbar>
+      </div>
+   <!-- <div *ngIf="!done" class="loader">{{statusText}}</div> -->
+   <div class="listwrap" >
+     <!-- *ngIf="done" -->
+     
+     <ion-card   (click)="viewchat(mate.posterImg,mate.username)" *ngFor="let mate of mates; let i = index">
+       <ion-item lines="none">
+         <ion-avatar slot="start">
+           <img src="{{mate.posterImg}}" />
+         </ion-avatar>
+         <ion-label>
+           <h3>{{mate.username}}</h3>
+           <p>{{mate.phone}}</p>
+         </ion-label>
+         <ion-badge  slot="end" color="primary">10</ion-badge>
+       </ion-item>
+     </ion-card>
+ 
+   </div>
+ 
+ 
+ </ion-content>

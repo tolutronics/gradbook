@@ -1,0 +1,7 @@
+{
+  "name": "gradbook",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

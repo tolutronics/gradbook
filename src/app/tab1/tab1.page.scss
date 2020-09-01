@@ -1,0 +1,136 @@
+.toolbar{
+}
+
+.searchbar{
+    --border-radius: 25px;
+}
+
+.profileImg{
+    border-radius: 100%;
+    margin: 10px 10px 10px 20px;
+    height: 50px;
+    width: 50px;
+}
+ 
+.postview{
+    height: fit-content;
+    width: 110%;
+    border-bottom: 1px solid #b6b2b2;
+    display: grid;
+    grid-template-columns: 20% 70%;
+
+
+    &  > ion-avatar{
+   
+        margin-right: 10px;
+        margin-top: 25px;
+    }
+
+ 
+    &  > .postImg{
+        border-radius: 20px;
+    }
+
+    & > div > ion-item{
+        --background:none;
+        width: 100%;
+        --padding-start: 0;
+    }
+
+    & > div > ion-item > h2{
+        font-weight: 700;
+        padding: 10px 0 0px 0;
+        font-size: 18px;
+    }
+    & > div > ion-item > h6{
+      
+        color: #000000ba;
+    /* top: 10px; */
+    top: 17px;
+    right: 0;
+    position: absolute;
+    /* margin-top: 10px; */
+    font-size: 11px;
+    }
+
+    & > div > p{
+        font-size: 15px;
+        margin-top: 0px;
+        color: #686767;
+        text-align: justify;
+        word-break: break-all;
+        padding-right: 5px;
+    }
+
+   
+
+    & > div > img{
+        border-radius: 10px;
+    }
+
+    & > div > div {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        margin-bottom: 10px;
+
+       
+    }
+    & > div > div > ion-item{
+        width: fit-content;
+        color: #514f4f;
+    }
+
+    & > div > div > ion-item > ion-icon{
+        font-size: 15px;
+    }
+    & > div > div > ion-item > ion-label{
+        width: fit-content;
+        font-size: 15px;
+    }
+
+
+    
+    
+}
+
+.loader{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.5;
+    background-color: #6b666663;
+}
+.loader > h3{
+    color: #000;
+    z-index: 10;
+    position: absolute;
+}
+.postview:last-child{
+   border: none;
+}
+
+
+
+.divider{
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.floatbtn{
+    color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    border-radius: 100%;
+    right: 20px;
+    background-color: var(--ion-color-primary);
+    bottom: 20px;
+    box-shadow: 1px 2px 8px 1px #938f8f;
+    z-index: 100;
+
+}
