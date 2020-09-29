@@ -56,7 +56,11 @@ queryText: any;
     // console.log('my date'+ dateTimeAgo);
      //> 6 minutes ago
   
+this.getPost()
+   
+  }
 
+  getPost(){
     let body={
      
       aksi:"getposts"
@@ -109,6 +113,25 @@ this.authApi.postData(body, 'auth.php').subscribe(async data =>{
  
 }
   }
+
+
+  like(post_id:any){
+    let body={
+     post_liker_id:this.user.user_id,
+      post_id:post_id,
+      parent_id:"posts",
+      post_like_date:Date(),
+      aksi:"addlike"
+      }
+  this.authApi.postData(body, 'auth.php').subscribe(async data =>{
+    console.log(data['success'])
+     console.log(data['result'])
+     if(data['success']==true){
+       this.doRefresh(this.refresher)
+     }
+  })
+
+  }
   gotoPost(){
     this.router.navigate(['post'])
   }
@@ -130,13 +153,17 @@ this.authApi.postData(body, 'auth.php').subscribe(async data =>{
      })
   }
 
-  
-  postdetail(posterImg:any, name:any,post:any,postImg:any){
+  postdetail(poster_img:any, poster_name:any,post:any,post_img:any,post_id:any,comment_count:any,post_like:any){
     const data= {
-        posterImg:posterImg, 
-        name:name, 
-        post :post, 
-        postImg:postImg
+      comment_count:comment_count,
+      parent_id:'posts',
+      poster_img:poster_img, 
+      poster_name:poster_name, 
+      post :post, 
+      post_like:post_like,
+      post_img:post_img,
+      post_id:post_id
+
       }
 
     

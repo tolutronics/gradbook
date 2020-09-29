@@ -17,9 +17,9 @@
 
   <div class="container" *ngFor="let msg of msgs">
     <div class="out-wrap"  >
-     <div class="in-wrap" lines="none" [class]="msg.name == 'Tolu' ? 'inner messageRight':'inner messageLeft'">
+     <div class="in-wrap" lines="none" [class]="msg.sender_id == user.user_id ? 'inner messageRight':'inner messageLeft'">
         
-          <ion-label class="msg">{{msg.text}}</ion-label>
+          <ion-label class="msg">{{msg.message}}</ion-label>
           <ion-label class="itime">
           <p class="time" slot="end">{{msg.time}}</p>
           <ion-icon slot="end" class="icon" name="checkmark"></ion-icon>
@@ -30,3 +30,11 @@
     </div>
   </div>
 </ion-content>
+<ion-footer class="ion-footer"  >
+  <ion-toolbar class="ion-padding">
+    <div >
+      <ion-textarea placeholder="Reply this post" rows="{{no}}" [(ngModel)]="chat_text"></ion-textarea>
+      <ion-icon slot="end" name="send"  (click)="send()" ></ion-icon>
+    </div>
+  </ion-toolbar>
+</ion-footer>

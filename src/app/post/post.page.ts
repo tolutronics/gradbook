@@ -89,6 +89,8 @@ close(){
 
 post(){
 
+  
+
   var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
 var string_length = 16;
 var randomstring = '';

@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule , SETTINGS} from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -29,7 +29,14 @@ import { environment } from '../environments/environment';
     SplashScreen,
     AuthProvider,
     AngularFirestoreModule,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {
+      provide: SETTINGS,
+      useValue: environment.production ? undefined : {
+        host: 'localhost:8080',
+        ssl: false
+      }
+    }
   ],
   bootstrap: [AppComponent]
 })

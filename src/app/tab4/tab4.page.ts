@@ -35,10 +35,11 @@ export class Tab4Page implements OnInit {
    
   })
   }
-  viewchat(posterImg:any,name:any){
+  viewchat(posterImg:any,name:any,user_id:any){
     const data= {
       posterImg:posterImg, 
       name:name,
+      user_id:user_id,
       count:null
     }
 

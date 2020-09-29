@@ -119,5 +119,38 @@ ion-item{
   
 }
 
+.ion-footer{
+}
+
+.ion-footer > ion-toolbar {
+    height: fit-content;
+    --padding-top: 0px; 
+    --padding-bottom: 0px; 
+    --padding-start: 15px;
+    --padding-end: 15px;
+}
+
+.ion-footer > ion-toolbar >div{
+    height: fit-content;
+    /* border-bottom: 1px solid #8f898e; */
+    margin-bottom: 16px;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 90% 10%;
+}
+
+.ion-footer > ion-toolbar > div > ion-icon{
+color: var(--ion-color-primary);
+font-size: 35px;
+}
+.ion-footer > ion-toolbar > div > ion-textarea{
+    --padding-top: 10px;
+    --padding-end: 10px;
+    --padding-bottom: 10px;
+    --padding-start: 0;
+    font-size: 18px;
+    --placeholder-opacity: 0.7;
+    }
+
 
 

@@ -16,12 +16,160 @@ include "time_format.php";
   $postjson = json_decode(file_get_contents('php://input'), true); 
 
 
+  if($postjson['aksi']=="addlike"){
+    $post_id = $postjson['post_id'];
+    $post_liker_id = $postjson['post_liker_id'];
+    $post_like_date = $postjson['post_like_date'];
+    $parent_id = $postjson['parent_id'];
+
+    $sql = "SELECT * FROM post_like WHERE post_liker_id='$post_liker_id' AND post_id = '$post_id'";
+    $query=mysqli_query($conn,$sql);
+          $numrow = mysqli_num_rows($query);
+          if($numrow >0){
+            
+            $sql = "UPDATE $parent_id SET post_like = post_like-1 WHERE post_id ='$post_id'";
+            $query=mysqli_query($conn, $sql);
+            $sql2= "DELETE FROM post_like WHERE post_liker_id = '$post_liker_id' AND post_id = '$post_id'" ;
+            $query2=mysqli_query($conn,$sql2);
+           
+          }else{
+            $sql = "UPDATE $parent_id SET post_like = post_like+1 WHERE post_id ='$post_id'";
+            $query=mysqli_query($conn, $sql);
+
+            $sql2= "INSERT INTO post_like (post_liker_id, post_like_date, post_id)
+            VALUES ('$post_liker_id','$post_like_date', '$post_id')";
+            $query2=mysqli_query($conn,$sql2);
+          }
+          
+
+
+
+   
+            
+            if($query) $result = json_encode(array('success'=>true, 'result'=>'success'));
+  else $result = json_encode(array('success'=>false, 'result'=>mysqli_error($conn)));
+
+  echo $result;
+
+   
+    
+  }
+
+  if ($postjson['aksi']=="get_singlepost") {
+    
+    $post_id = $postjson['post_id'];
+    $parent_id = $postjson['parent_id'];
+
+    $sql= "SELECT * FROM $parent_id WHERE post_id= '$post_id' ";
+    $query=mysqli_query($conn, $sql);
+    $data = $query->fetch_all(MYSQLI_ASSOC);
+    if($data){
+          
+      $result=  json_encode(array('success'=>true, 'result'=>$data));
+      //mysqli_close($con);
+  }else{
+     $result=  json_encode(array('success'=>false, 'result'=>'no data'));}
   
+    echo $result;
+  }
 
- 
+  if($postjson['aksi']=="getcomment"){
+    $post_id = $postjson['post_id'];
 
-if($postjson['aksi']=="test"){
-  $result = json_encode(array('success'=>true, 'msg'=>'posted successfully'));
+    $query = $conn->query("SELECT * FROM $post_id ");
+    $data = $query->fetch_all(MYSQLI_ASSOC);
+    if ($data) {
+        $result = json_encode(['success' => true, 'result' => $data]);
+    } else {
+      
+        $result = json_encode(['success' => false, 'msg' => mysqli_error($conn)]);
+    }
+    
+    echo $result;
+  }
+
+if($postjson['aksi']=="postcomment"){
+  $post_id = $postjson['post_id'];
+  $parent_id = $postjson['parent_id'];
+$comment = $postjson['comment'];
+$commenter_name = $postjson['commenter_name'];
+$comment_id = $postjson['comment_id'];
+$commenter_img = $postjson['commenter_img'];
+$commenter_id = $postjson['user_id'];
+// $comment_img = $postjson['comment_img'];
+$comment_date = $postjson['comment_date'];
+
+    $sql = "CREATE TABLE IF NOT EXISTS $post_id (
+      commenter_name VARCHAR(30) NOT NULL,
+      comment_id VARCHAR(30) PRIMARY KEY,
+      post_id VARCHAR(30),
+      commenter_img VARCHAR(50),
+      comment VARCHAR(250),
+      commenter_id VARCHAR(50),
+      comment_img VARCHAR(50),
+      comment_date VARCHAR(50),
+      post_like INT(11) NOT NULL,
+      comment_count INT(11) NOT NULL
+
+      )";
+  $query=mysqli_query($conn,$sql);
+
+  if ($query) {
+
+    $sqli= "INSERT INTO $post_id (comment, commenter_name, comment_id,post_id, commenter_img, commenter_id, comment_img, comment_date)
+    VALUES ('$comment','$commenter_name', '$comment_id', '$comment_id', '$commenter_img',  '$commenter_id',  '', '$comment_date')";
+    $query2=mysqli_query($conn,$sqli);
+  
+    if($query2){
+      $update = "UPDATE posts SET comment_count = comment_count+1 WHERE post_id = '$post_id'";
+      $update_query=mysqli_query($conn,$update);
+      $update2 = "UPDATE $parent_id SET comment_count = comment_count+1 WHERE comment_id = '$post_id'";
+      $update_query2=mysqli_query($conn,$update2);
+     
+      if ($update_query) {
+        $result = json_encode(array('success'=>true, 'msg'=>'replied successfully'));
+      }else {
+        $update2 = "UPDATE $parent_id SET comment_count = comment_count+1 WHERE comment_id = '$post_id'";
+      $update_query2=mysqli_query($conn,$update2);
+      if (update_query2) {
+        $result = json_encode(array('success'=>true, 'msg'=>'replied successfully'));
+      } else {
+        $result = json_encode(array('success'=>false, 'msg'=>'error1'));
+      }
+      
+        
+      }
+     
+
+    }
+    
+    else{$result = json_encode(array('success'=>false, 'msg'=>'error2'));
+    } 
+    echo $result;
+    
+  }else {
+    $sqli= "INSERT INTO $post_id (comment, commenter_name, comment_id,post_id, commenter_img, commenter_id, comment_img, comment_date)
+    VALUES ('$comment','$commenter_name', '$comment_id', '$comment_id', '$commenter_img',  '$commenter_id',  '', '$comment_date')";
+    $query2=mysqli_query($conn,$sqli);
+  
+    if($query2){
+      $update2 = "UPDATE $parent_id SET comment_count = comment_count+1 WHERE comment_id = '$post_id'";
+      $update_query2=mysqli_query($conn,$update2);
+     $result = json_encode(array('success'=>true, 'msg'=>'replied successfully'));
+    
+    }
+    else{
+      $result = json_encode(array('success'=>false, 'msg'=>mysqli_error($conn)));
+
+    } 
+  
+    echo $result;
+  }
+  
+    
+  
+  
+  
 }
 
 
@@ -198,7 +346,7 @@ if($postjson['aksi']=="test"){
 
    
 
-    $query = $conn->query("SELECT * FROM posts ");
+    $query = $conn->query("SELECT * FROM posts ORDER BY post_date DESC ");
     $data = $query->fetch_all(MYSQLI_ASSOC);
     if ($data) {
         $result = json_encode(['success' => true, 'result' => $data]);

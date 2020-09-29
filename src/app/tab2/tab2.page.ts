@@ -110,7 +110,7 @@ this.authApi.postData(body, 'auth.php').subscribe(async data =>{
       }
         }
 
-  viewmate(posterImg:any,name:any ,image:any){
+  viewmate(posterImg:any,username:any ,image:any){
 
 //     this.afstore.doc(`unilorin/civil/2019/1430GC019`).set({
 //       name:"Faruk Apari",
@@ -141,7 +141,7 @@ this.authApi.postData(body, 'auth.php').subscribe(async data =>{
         const data= {
           url:this.router.url,
         posterImg:posterImg, 
-        name:name, 
+        username:username, 
         image:image,
         matric:'13/30gc018'
       }

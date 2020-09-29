@@ -13,7 +13,7 @@
     <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" pullFactor="0.5" pullMin="30" pullMax="90">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <ion-card   (click)="viewmate(mate.posterImg,mate.name,mate.image)" *ngFor="let mate of mates; let i=index">
+    <ion-card   (click)="viewmate(mate.posterImg,mate.username,mate.image)" *ngFor="let mate of mates; let i=index">
       <ion-item lines="none">
         <ion-avatar slot="start">
           <img src="{{mate.image}}" />
